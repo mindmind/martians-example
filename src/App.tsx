@@ -1,18 +1,15 @@
-import './App.css'
+import 'src/styles/variables.scss'
+import 'src/styles/main.scss'
 
-import Form from 'src/components/Form/Form'
-import FormInput from './components/Inputs/FormInput/FormInput'
+import SingInForm from './SingInForm/SingInForm'
+
+import styles from './app.module.scss'
 
 const App = () => {
-  const handleSubmit = () => {
-    alert('here we go')
-  }
-
   return (
-    <Form debug onSubmit={handleSubmit}>
-      <FormInput name="email" />
-      <button type="submit">Submit</button>
-    </Form>
+    <div className={styles.wrapper}>
+      <SingInForm />
+    </div>
   )
 }
 
