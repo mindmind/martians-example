@@ -16,6 +16,8 @@ const SingInForm = () => {
 
   return (
     <Form<SignInFormFields> className={styles.wrapper} debug onSubmit={handleSubmit}>
+      <h1 className={styles.title}>Hello there</h1>
+      
       <FormInput
         required
         name="email" 

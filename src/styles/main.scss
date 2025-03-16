@@ -1,6 +1,6 @@
 html {
+    font-family: "JetBrains Mono";
     line-height: 1.5;
-    font-family: Lato, sans-serif;
     font-feature-settings: normal;
     font-variation-settings: normal;
 }
@@ -21,4 +21,8 @@ body > #root {
 body {
     margin: 0;
     line-height: inherit;
+}
+
+input, textarea, button {
+    font-family: inherit;
 }
