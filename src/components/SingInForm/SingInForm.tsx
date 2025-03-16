@@ -1,7 +1,7 @@
 import Form from 'src/components/Form/Form'
 import EmailFormInput from 'src/components/Inputs/EmailFormInput/EmailFormInput'
 import PasswordFormInput from 'src/components/Inputs/PasswordFormInput/PasswordFormInput'
-import FormError from 'src/components/FormError/FormError'
+import FormResult from 'src/components/FormResult/FormResult'
 import Button from 'src/components/Button/Button'
 
 import { useSignIn } from 'src/hooks/mutations/useSignIn'
@@ -38,7 +38,11 @@ const SingInForm = () => {
       />
 
       {signInMutation.isError ? 
-        <FormError>{signInMutation.failureReason?.message ?? 'unknown error'}</FormError>
+        <FormResult isSuccess={false}>{signInMutation.failureReason?.message ?? 'unknown error'}</FormResult>
+      : null}
+
+      {signInMutation.isSuccess ?
+        <FormResult>{`The request is successful. Everything is fine.`}</FormResult>
       : null}
 
       <Button className={styles.button} type="submit" isLoading={signInMutation.isPending}>Let's go</Button>
