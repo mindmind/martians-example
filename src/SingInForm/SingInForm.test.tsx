@@ -24,11 +24,13 @@ describe('SingInForm', () => {
     const submitButton = screen.getByRole('button', { name: "Let's go" })
     fireEvent.click(submitButton)
     
-    const emailInput = screen.getByLabelText('Email')
-    expect(emailInput).toBeInvalid()
-    
-    const passwordInput = screen.getByLabelText('Password')
-    expect(passwordInput).toBeInvalid()
+    await waitFor(() => {
+      const emailInput = screen.getByLabelText('Email')
+      expect(emailInput).toBeInvalid()
+      
+      const passwordInput = screen.getByLabelText('Password')
+      expect(passwordInput).toBeInvalid()
+    })
   })
   
   it('calls handleSubmit when form is submitted with valid inputs', async () => {

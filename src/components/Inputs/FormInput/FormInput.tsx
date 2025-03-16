@@ -1,4 +1,5 @@
 import { useFormContext, useController } from 'react-hook-form'
+import cx from 'classnames'
 
 import PureInput from 'src/components/Inputs/PureInput/PureInput'
 import BasicLabel from 'src/components/BasicLabel/BasicLabel'
@@ -6,21 +7,28 @@ import BasicError from 'src/components/BasicError/BasicError'
 
 import styles from './form-input.module.scss'
 
-interface FormInputProps {
+export interface FormInputProps {
+    className?: string
     name: string
     type?: React.HTMLInputTypeAttribute
     label?: string
     placeholder?: string
-    required?: boolean
+    rules?: { 
+        required?: string
+        pattern?: { value: RegExp, message: string } 
+    }
+    postInputButton?: React.ReactNode
 }
 
 const FormInput = (props: FormInputProps) => {
     const { 
+        className,
         name,
         type = 'text',
         label,
         placeholder,
-        required
+        rules,
+        postInputButton
     } = props
     
     const methods = useFormContext()
@@ -28,18 +36,33 @@ const FormInput = (props: FormInputProps) => {
     const { field, fieldState } = useController({
         name,
         control: methods.control,
-        rules: { required: required ? 'required field' : undefined }
+        rules
     })
 
+    const error = fieldState.invalid ? (fieldState.error?.message ?? 'unknown error') : '\u00A0'
+
     return (
-        <div className={styles.wrapper}>
+        <div className={cx(styles.wrapper, className)}>
             {label ? <BasicLabel htmlFor={name}>{label}</BasicLabel> : null}
 
-            <div>
-            <PureInput {...field} type={type} placeholder={placeholder} isInvalid={Boolean(fieldState.error)} />
+            <div className={styles.inner}>
+                <PureInput 
+                    {...field}
+                    className={cx(styles.input, Boolean(postInputButton) && styles.withPostInputButton)} 
+                    type={type} 
+                    placeholder={placeholder} 
+                    isInvalid={Boolean(fieldState.error)} 
+                />
+
+                {postInputButton ?
+                    <div className={styles.postInputButtonWrapper}>
+                        {postInputButton}
+                    </div>
+                    : null
+                }
             </div>
-            
-            {fieldState.error ? <BasicError>{fieldState.error.message || 'unknown error'}</BasicError> : null}
+
+            <BasicError isHidden={!error}>{error}</BasicError>
         </div>
     )
 }

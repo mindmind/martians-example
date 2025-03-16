@@ -1,10 +1,16 @@
+import cx from 'classnames'
+
 import styles from './basic-error.module.scss'
 
-const BasicError = (props: React.PropsWithChildren<object>) => {
-  const { children } = props
+interface BasicErrorProps {
+    isHidden?: boolean
+}
+
+const BasicError = (props: React.PropsWithChildren<BasicErrorProps>) => {
+  const { isHidden = true, children } = props
 
   return (
-    <div className={styles.error}>{children}</div>
+    <div className={cx(styles.error, isHidden && styles.isHidden)}>{children}</div>
   )
 }
 

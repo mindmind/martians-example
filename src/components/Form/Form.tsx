@@ -17,7 +17,7 @@ const Form = <T extends FieldValues,>(props: React.PropsWithChildren<FormProps<T
   return (
     <>
         <FormProvider {...methods}>
-            <form className={className} onSubmit={methods.handleSubmit(onSubmit)}>
+            <form className={className} noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                 {children}
             </form>
         </FormProvider>

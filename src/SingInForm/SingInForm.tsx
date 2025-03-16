@@ -1,5 +1,6 @@
 import Form from 'src/components/Form/Form'
-import FormInput from 'src/components/Inputs/FormInput/FormInput'
+import EmailFormInput from 'src/components/Inputs/EmailFormInput/EmailFormInput'
+import PasswordFormInput from 'src/components/Inputs/PasswordFormInput/PasswordFormInput'
 import Button from 'src/components/Button/Button'
 
 import styles from './sing-in-form.module.scss'
@@ -15,20 +16,18 @@ const SingInForm = () => {
     <Form<SignInPayload> className={styles.wrapper} onSubmit={handleSubmit}>
       <h1 className={styles.title}>Hello there</h1>
 
-      <FormInput
-        required
+      <EmailFormInput
         name="email" 
-        type="email" 
         label="Email"
         placeholder="Enter your email"
+        rules={{ required: 'Email is required' }}
       />
 
-      <FormInput
-        required
+      <PasswordFormInput
         name="password" 
-        type="password"
         label="Password"
         placeholder="Enter your password"
+        rules={{ required: 'Password is required' }}
       />
 
       <Button className={styles.button} type="submit">Let's go</Button>
