@@ -1,12 +1,12 @@
 import cx from 'classnames'
 
-import styles from './basic-error.module.scss'
+import styles from './field-error.module.scss'
 
-interface BasicErrorProps {
+interface FieldErrorProps {
     isHidden?: boolean
 }
 
-const BasicError = (props: React.PropsWithChildren<BasicErrorProps>) => {
+const FieldError = (props: React.PropsWithChildren<FieldErrorProps>) => {
   const { isHidden = true, children } = props
 
   return (
@@ -14,4 +14,4 @@ const BasicError = (props: React.PropsWithChildren<BasicErrorProps>) => {
   )
 }
 
-export default BasicError
+export default FieldError

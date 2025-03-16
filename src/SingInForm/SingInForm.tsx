@@ -1,16 +1,23 @@
 import Form from 'src/components/Form/Form'
 import EmailFormInput from 'src/components/Inputs/EmailFormInput/EmailFormInput'
 import PasswordFormInput from 'src/components/Inputs/PasswordFormInput/PasswordFormInput'
+import FormError from 'src/components/FormError/FormError'
 import Button from 'src/components/Button/Button'
+
+import { useSignIn } from 'src/hooks/mutations/useSignIn'
 
 import styles from './sing-in-form.module.scss'
 
 import type { SignInPayload } from 'src/ts/user'
 
 const SingInForm = () => {
-  const handleSubmit = () => {
-    alert('here we go')
+  const signInMutation = useSignIn()
+
+  const handleSubmit = async (data: SignInPayload) => {
+    await signInMutation.mutateAsync(data)
   }
+
+  console.dir(signInMutation.failureReason)
 
   return (
     <Form<SignInPayload> className={styles.wrapper} onSubmit={handleSubmit}>
@@ -30,7 +37,11 @@ const SingInForm = () => {
         rules={{ required: 'Password is required' }}
       />
 
-      <Button className={styles.button} type="submit">Let's go</Button>
+      {signInMutation.isError ? 
+        <FormError>{signInMutation.failureReason?.message ?? 'unknown error'}</FormError>
+      : null}
+
+      <Button className={styles.button} type="submit" isLoading={signInMutation.isPending}>Let's go</Button>
     </Form>
   )
 }

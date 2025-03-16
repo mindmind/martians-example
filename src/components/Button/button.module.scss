@@ -22,4 +22,9 @@
       background-color: var(--color-brand-950);
       border-color: var(--color-brand-950);
    }
+
+   &:disabled {
+      background-color: var(--color-neutral);
+      border-color: var(--color-neutral);
+   }
 }

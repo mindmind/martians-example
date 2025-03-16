@@ -2,8 +2,8 @@ import { useFormContext, useController } from 'react-hook-form'
 import cx from 'classnames'
 
 import PureInput from 'src/components/Inputs/PureInput/PureInput'
-import BasicLabel from 'src/components/BasicLabel/BasicLabel'
-import BasicError from 'src/components/BasicError/BasicError'
+import FieldLabel from 'src/components/FieldLabel/FieldLabel'
+import FieldError from 'src/components/FieldError/FieldError'
 
 import styles from './form-input.module.scss'
 
@@ -43,7 +43,7 @@ const FormInput = (props: FormInputProps) => {
 
     return (
         <div className={cx(styles.wrapper, className)}>
-            {label ? <BasicLabel htmlFor={name}>{label}</BasicLabel> : null}
+            {label ? <FieldLabel htmlFor={name}>{label}</FieldLabel> : null}
 
             <div className={styles.inner}>
                 <PureInput 
@@ -62,7 +62,7 @@ const FormInput = (props: FormInputProps) => {
                 }
             </div>
 
-            <BasicError isHidden={!error}>{error}</BasicError>
+            <FieldError isHidden={!error}>{error}</FieldError>
         </div>
     )
 }
