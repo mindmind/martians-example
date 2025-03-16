@@ -4,10 +4,7 @@ import Button from 'src/components/Button/Button'
 
 import styles from './sing-in-form.module.scss'
 
-type SignInFormFields = {
-  email: string
-  password: string
-}
+import type { SignInPayload } from 'src/ts/user'
 
 const SingInForm = () => {
   const handleSubmit = () => {
@@ -15,9 +12,9 @@ const SingInForm = () => {
   }
 
   return (
-    <Form<SignInFormFields> className={styles.wrapper} debug onSubmit={handleSubmit}>
+    <Form<SignInPayload> className={styles.wrapper} onSubmit={handleSubmit}>
       <h1 className={styles.title}>Hello there</h1>
-      
+
       <FormInput
         required
         name="email" 

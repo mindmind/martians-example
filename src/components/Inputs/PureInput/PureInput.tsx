@@ -13,14 +13,17 @@ interface PureInputProps {
 }
 
 const PureInput = (props: PureInputProps) => {
-  const { className, value = '', type = 'text', isInvalid, ...rest } = props
+  const { className, name, value = '', type = 'text', isInvalid, ...rest } = props
 
   return (
     <input 
         {...rest} 
-        className={cx(styles.input, isInvalid && styles.isInvalid, className)} 
+        className={cx(styles.input, isInvalid && styles.isInvalid, className)}
+        id={name}
+        name={name}
         value={value} 
         type={type}
+        aria-invalid={isInvalid}
     />
   )
 }
