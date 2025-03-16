@@ -3,6 +3,7 @@ import { redirect } from '@tanstack/react-router'
 import rootRoute from 'src/routes/RootRoute/RootRoute'
 import signInRoute from 'src/routes/SignInRoute/SignInRoute'
 import signUpRoute from 'src/routes/SingUpRoute/SignUpRoute'
+import forgotRoute from './routes/ForgotRoute/ForgotRoute'
 
 import { createRouter, createRoute } from '@tanstack/react-router'
 
@@ -22,7 +23,7 @@ const indexRoute = createRoute({
   }
 })
 
-const routeTree = rootRoute.addChildren([indexRoute, signUpRoute, signInRoute])
+const routeTree = rootRoute.addChildren([indexRoute, signUpRoute, signInRoute, forgotRoute])
 
 const router = createRouter({ routeTree })
   

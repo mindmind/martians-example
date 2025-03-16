@@ -9,3 +9,7 @@ export type SignUpPayload = {
     firstName: string
     lastName: string
 }
+
+export type ForgotPayload = {
+    email: string
+}

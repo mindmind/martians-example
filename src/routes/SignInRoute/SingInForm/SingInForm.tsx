@@ -41,6 +41,8 @@ const SignInForm = () => {
             </AuthForm>
 
             <AuthFormLink to="/sign-up">Don't have an account? Sign up</AuthFormLink>
+            
+            <AuthFormLink to="/forgot">Forgot password?</AuthFormLink>
         </div>
     )
 }
