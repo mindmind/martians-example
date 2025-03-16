@@ -15,7 +15,9 @@ export interface FormInputProps {
     placeholder?: string
     rules?: { 
         required?: string
-        pattern?: { value: RegExp, message: string } 
+        pattern?: { value: RegExp, message: string }
+        validate?: (value: string) => boolean | string
+        onChange?: () => void
     }
     postInputButton?: React.ReactNode
 }

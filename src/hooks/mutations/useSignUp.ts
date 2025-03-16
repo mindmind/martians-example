@@ -2,12 +2,12 @@ import { useMutation } from '@tanstack/react-query'
 
 import { MOCKED_USER } from 'src/mocks/user'
 
-import type { SignInPayload } from 'src/ts/user'
+import type { SignUpPayload } from 'src/ts/user'
 
-export const useSignIn = () => 
+export const useSignUp = () => 
 useMutation({
-    mutationFn: async (data: SignInPayload) => {
-    //   const response = await fetch('/api/auth/sign-in', {
+    mutationFn: async (data: SignUpPayload) => {
+    //   const response = await fetch('/api/auth/sign-up', {
     //     method: 'POST',
     //     headers: {
     //       'Content-Type': 'application/json',
@@ -23,17 +23,17 @@ useMutation({
     //   return response.json();
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (data.email === MOCKED_USER.email && data.password === MOCKED_USER.password) {
+            if (data.email !== MOCKED_USER.email) {
                 resolve({
                     success: true,
                     data: {
-                        ...MOCKED_USER
+                        ...data
                     }
                 })
             } else {
                 reject({
                     success: false,
-                    message: 'No user found with provided credentials'
+                    message: 'User with provided email already exists'
                 })
             }
         }, 500)

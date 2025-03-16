@@ -1,7 +1,7 @@
 import { createRoute } from '@tanstack/react-router'
 import rootRoute from 'src/routes/RootRoute/RootRoute'
 
-import SingInForm from 'src/components/SingInForm/SingInForm'
+import SingInForm from './SingInForm/SingInForm'
 
 const SignInRoute = () => {
   return (
