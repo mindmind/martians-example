@@ -17,7 +17,7 @@ const SignUpForm = () => {
     }
 
     return (
-        <div>
+        <>
             <AuthForm<SignUpPayload> 
                 title="Sign Up" 
                 submitText="Register me"
@@ -52,7 +52,7 @@ const SignUpForm = () => {
             </AuthForm>
 
             <AuthFormLink to="/sign-in">Already have account? Sing In</AuthFormLink>
-        </div>
+        </>
     )
 }
 

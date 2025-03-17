@@ -14,7 +14,7 @@ const ForgotForm = () => {
     }
 
     return (
-        <div>
+        <>
             <AuthForm<ForgotPayload> 
                 title="Reset password" 
                 submitText="Reset"
@@ -33,7 +33,7 @@ const ForgotForm = () => {
             </AuthForm>
 
             <AuthFormLink to="/sign-in">Try to sign in again</AuthFormLink>
-        </div>
+        </>
     )
 }
 

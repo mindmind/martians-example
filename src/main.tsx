@@ -1,4 +1,4 @@
-import '@fontsource/jetbrains-mono'
+import '@fontsource-variable/jetbrains-mono'
 import 'src/styles/variables.scss'
 import 'src/styles/main.scss'
 
