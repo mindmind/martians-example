@@ -15,20 +15,33 @@ const PasswordFormInput = (props: FormInputProps) => {
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
-    const handleToggleVisibility = () => {
-        setIsPasswordVisible((prev) => !prev)
-    }
+  const handleToggleVisibility = () => {
+    setIsPasswordVisible((prev) => !prev)
+  }
 
   const postInputButton = (
-    <div className={styles.visibilitySwitch} onClick={handleToggleVisibility}>
-        <img src={!isPasswordVisible ? showIconImg : hideIconImg} alt="show password" />
-    </div>)
+    <button
+      className={styles.visibilitySwitch}
+      type="button"
+      onClick={handleToggleVisibility}
+    >
+      <img
+        src={!isPasswordVisible ? showIconImg : hideIconImg}
+        alt="show password"
+      />
+    </button>
+  )
 
   const type = isPasswordVisible ? 'text' : 'password'
 
   return (
-    <FormInput {...props} className={cx(className, styles.wrapper)} type={type} postInputButton={postInputButton} />
-)
+    <FormInput
+      {...props}
+      className={cx(className, styles.wrapper)}
+      type={type}
+      postInputButton={postInputButton}
+    />
+  )
 }
 
 export default PasswordFormInput
