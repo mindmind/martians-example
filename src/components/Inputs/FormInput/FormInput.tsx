@@ -14,7 +14,7 @@ export interface FormInputProps {
   label?: string
   placeholder?: string
   rules?: {
-    required?: string
+    required?: string | boolean
     pattern?: { value: RegExp; message: string }
     validate?: (value: string) => boolean | string
     onChange?: () => void
@@ -45,6 +45,8 @@ const FormInput = (props: FormInputProps) => {
     ? (fieldState.error?.message ?? 'unknown error')
     : '\u00A0'
 
+  const isRequired = rules?.required ? true : undefined
+
   return (
     <div className={cx(styles.formInputWrapper, className)}>
       {label ? <FieldLabel htmlFor={name}>{label}</FieldLabel> : null}
@@ -59,6 +61,7 @@ const FormInput = (props: FormInputProps) => {
           type={type}
           placeholder={placeholder}
           isInvalid={Boolean(fieldState.error)}
+          isRequired={isRequired}
         />
 
         {postInputButton ? (

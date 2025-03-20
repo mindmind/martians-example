@@ -4,27 +4,27 @@ import { DevTool } from '@hookform/devtools'
 import type { FieldValues, SubmitHandler } from 'react-hook-form'
 
 interface FormProps<T extends FieldValues> {
-    className?: string
-    debug?: boolean
-    onSubmit: SubmitHandler<T>
+  className?: string
+  debug?: boolean
+  onSubmit: SubmitHandler<T>
 }
 
-const Form = <T extends FieldValues,>(props: React.PropsWithChildren<FormProps<T>>) => {
+const Form = <T extends FieldValues>(
+  props: React.PropsWithChildren<FormProps<T>>,
+) => {
   const { className, debug, onSubmit, children } = props
 
   const methods = useForm<T>()
 
   return (
     <>
-        <FormProvider {...methods}>
-            <form className={className} noValidate onSubmit={methods.handleSubmit(onSubmit)}>
-                {children}
-            </form>
-        </FormProvider>
+      <FormProvider {...methods}>
+        <form className={className} onSubmit={methods.handleSubmit(onSubmit)}>
+          {children}
+        </form>
+      </FormProvider>
 
-        {debug ?
-         <DevTool control={methods.control} />
-        : null}
+      {debug ? <DevTool control={methods.control} /> : null}
     </>
   )
 }

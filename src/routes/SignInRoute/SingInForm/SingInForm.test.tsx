@@ -35,11 +35,11 @@ vi.mock('src/components/AuthForm/AuthForm', () => ({
   ),
 }))
 
-vi.mock('src/components/Inputs/EmailFormInput/EmailFormInput', () => ({
+vi.mock('src/components/Inputs/FormInput/FormInput', () => ({
   default: ({ label, placeholder }: FormInputProps) => (
     <div data-testid="email-input">
       <label>{label}</label>
-      <input placeholder={placeholder} />
+      <input placeholder={placeholder} type="email" />
     </div>
   ),
 }))

@@ -8,6 +8,7 @@ interface PureInputProps {
   type?: React.HTMLInputTypeAttribute
   placeholder?: string
   isInvalid?: boolean
+  isRequired?: boolean
   value: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
@@ -19,6 +20,7 @@ const PureInput = (props: PureInputProps) => {
     value = '',
     type = 'text',
     isInvalid,
+    isRequired,
     ...rest
   } = props
 
@@ -30,6 +32,7 @@ const PureInput = (props: PureInputProps) => {
       name={name}
       value={value}
       type={type}
+      required={isRequired}
       aria-invalid={isInvalid}
       data-testid={name}
     />
