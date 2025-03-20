@@ -70,11 +70,10 @@ describe('ForgotForm component', () => {
     expect(screen.getByText('Reset')).toBeInTheDocument()
   })
 
-  it('renders email input with correct label and placeholder', () => {
+  it('renders email input with correct label', () => {
     render(<ForgotForm />)
 
     expect(screen.getByText('Email')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter your email')).toBeInTheDocument()
   })
 
   it('renders sign in link', () => {

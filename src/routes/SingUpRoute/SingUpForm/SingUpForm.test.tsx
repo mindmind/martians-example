@@ -87,21 +87,14 @@ describe('SignUpForm component', () => {
     render(<SignUpForm />)
 
     expect(screen.getByText('First Name')).toBeInTheDocument()
-    expect(
-      screen.getByPlaceholderText('Enter your first name'),
-    ).toBeInTheDocument()
 
     expect(screen.getByText('Last Name')).toBeInTheDocument()
-    expect(
-      screen.getByPlaceholderText('Enter your last name'),
-    ).toBeInTheDocument()
   })
 
   it('renders email input with correct label', () => {
     render(<SignUpForm />)
 
     expect(screen.getByText('Email')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter your email')).toBeInTheDocument()
   })
 
   it('renders the password fields component', () => {

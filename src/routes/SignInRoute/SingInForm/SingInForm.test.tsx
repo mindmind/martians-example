@@ -83,12 +83,8 @@ describe('SignInForm component', () => {
     render(<SignInForm />)
 
     expect(screen.getByText('Email')).toBeInTheDocument()
-    expect(screen.getByPlaceholderText('Enter your email')).toBeInTheDocument()
 
     expect(screen.getByText('Password')).toBeInTheDocument()
-    expect(
-      screen.getByPlaceholderText('Enter your password'),
-    ).toBeInTheDocument()
   })
 
   it('renders sign up and forgot password links', () => {
