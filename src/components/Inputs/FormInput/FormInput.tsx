@@ -14,6 +14,7 @@ export interface FormInputProps {
   label?: string
   placeholder?: string
   autoComplete?: string
+  autoFocus?: boolean
   rules?: {
     required?: string | boolean
     pattern?: { value: RegExp; message: string }
@@ -31,6 +32,7 @@ const FormInput = (props: FormInputProps) => {
     label,
     placeholder,
     autoComplete,
+    autoFocus,
     rules,
     postInputButton,
   } = props
@@ -63,6 +65,7 @@ const FormInput = (props: FormInputProps) => {
           type={type}
           placeholder={placeholder}
           autoComplete={autoComplete}
+          autoFocus={autoFocus}
           isInvalid={Boolean(fieldState.error)}
           isRequired={isRequired}
         />

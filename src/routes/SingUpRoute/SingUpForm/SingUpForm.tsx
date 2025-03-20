@@ -27,6 +27,15 @@ const SignUpForm = () => {
         onSubmit={handleSubmit}
       >
         <FormInput
+          name="email"
+          label="Email"
+          type="email"
+          autoComplete="username"
+          autoFocus
+          rules={{ required: true }}
+        />
+
+        <FormInput
           name="firstName"
           label="First Name"
           rules={{ required: true }}
@@ -35,14 +44,6 @@ const SignUpForm = () => {
         <FormInput
           name="lastName"
           label="Last Name"
-          rules={{ required: true }}
-        />
-
-        <FormInput
-          name="email"
-          label="Email"
-          type="email"
-          autoComplete="username"
           rules={{ required: true }}
         />
 

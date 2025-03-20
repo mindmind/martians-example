@@ -8,6 +8,7 @@ interface PureInputProps {
   type?: React.HTMLInputTypeAttribute
   placeholder?: string
   autoComplete?: string
+  autoFocus?: boolean
   isInvalid?: boolean
   isRequired?: boolean
   value: string

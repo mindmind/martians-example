@@ -15,6 +15,7 @@ const FormError = (props: React.PropsWithChildren<FormErrorProps>) => {
         styles.formResultWrapper,
         isSuccess ? styles.isSuccess : styles.isError,
       )}
+      aria-live="polite"
     >
       {children}
     </div>

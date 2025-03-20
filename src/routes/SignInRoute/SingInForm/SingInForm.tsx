@@ -29,6 +29,8 @@ const SignInForm = () => {
           name="email"
           label="Email"
           type="email"
+          autoComplete="username"
+          autoFocus
           rules={{ required: true }}
         />
 

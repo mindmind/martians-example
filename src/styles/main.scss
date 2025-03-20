@@ -30,10 +30,5 @@ button {
 }
 
 a {
-  outline: none;
-}
-
-a:focus {
-  border-radius: 6px;
-  box-shadow: 0 0 0 2px var(--color-brand-600);
+  outline-color: var(--color-brand-600);
 }

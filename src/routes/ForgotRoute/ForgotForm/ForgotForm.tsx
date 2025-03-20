@@ -28,6 +28,7 @@ const ForgotForm = () => {
           name="email"
           label="Email"
           autoComplete="username"
+          autoFocus
           type="email"
           rules={{ required: true }}
         />
