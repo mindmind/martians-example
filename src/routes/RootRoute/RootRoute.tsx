@@ -4,14 +4,14 @@ import styles from './root-route.module.scss'
 
 const RootRoute = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.rootRouteWrapper}>
       <Outlet />
     </div>
   )
 }
 
 const rootRoute = createRootRoute({
-    component: RootRoute,
+  component: RootRoute,
 })
 
 export default rootRoute

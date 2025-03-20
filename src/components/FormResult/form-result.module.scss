@@ -1,23 +1,23 @@
-.wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 14px 16px;
-    margin: 12px;
-    font-size: 14px;
-    text-align: center;
+.formResultWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 16px;
+  margin: 12px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--color-danger);
+  background-color: var(--color-danger-light);
+  border-radius: 6px;
+
+  &.isSuccess {
+    color: var(--color-brand-800);
+    background-color: var(--color-brand-200);
+  }
+
+  &.isError {
     color: var(--color-danger);
     background-color: var(--color-danger-light);
-    border-radius: 6px;
-
-    &.isSuccess {
-        color: var(--color-brand-800);
-        background-color: var(--color-brand-200);
-    }
-
-    &.isError {
-        color: var(--color-danger);
-        background-color: var(--color-danger-light);
-    }
+  }
 }

@@ -10,7 +10,14 @@ const FormError = (props: React.PropsWithChildren<FormErrorProps>) => {
   const { isSuccess = true, children } = props
 
   return (
-    <div className={cx(styles.wrapper, isSuccess ? styles.isSuccess : styles.isError)}>{children}</div>
+    <div
+      className={cx(
+        styles.formResultWrapper,
+        isSuccess ? styles.isSuccess : styles.isError,
+      )}
+    >
+      {children}
+    </div>
   )
 }
 

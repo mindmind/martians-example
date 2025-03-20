@@ -8,65 +8,67 @@ import FieldError from 'src/components/FieldError/FieldError'
 import styles from './form-input.module.scss'
 
 export interface FormInputProps {
-    className?: string
-    name: string
-    type?: React.HTMLInputTypeAttribute
-    label?: string
-    placeholder?: string
-    rules?: { 
-        required?: string
-        pattern?: { value: RegExp, message: string }
-        validate?: (value: string) => boolean | string
-        onChange?: () => void
-    }
-    postInputButton?: React.ReactNode
+  className?: string
+  name: string
+  type?: React.HTMLInputTypeAttribute
+  label?: string
+  placeholder?: string
+  rules?: {
+    required?: string
+    pattern?: { value: RegExp; message: string }
+    validate?: (value: string) => boolean | string
+    onChange?: () => void
+  }
+  postInputButton?: React.ReactNode
 }
 
 const FormInput = (props: FormInputProps) => {
-    const { 
-        className,
-        name,
-        type = 'text',
-        label,
-        placeholder,
-        rules,
-        postInputButton
-    } = props
-    
-    const methods = useFormContext()
+  const {
+    className,
+    name,
+    type = 'text',
+    label,
+    placeholder,
+    rules,
+    postInputButton,
+  } = props
 
-    const { field, fieldState } = useController({
-        name,
-        control: methods.control,
-        rules
-    })
+  const methods = useFormContext()
 
-    const error = fieldState.invalid ? (fieldState.error?.message ?? 'unknown error') : '\u00A0'
+  const { field, fieldState } = useController({
+    name,
+    control: methods.control,
+    rules,
+  })
 
-    return (
-        <div className={cx(styles.wrapper, className)}>
-            {label ? <FieldLabel htmlFor={name}>{label}</FieldLabel> : null}
+  const error = fieldState.invalid
+    ? (fieldState.error?.message ?? 'unknown error')
+    : '\u00A0'
 
-            <div className={styles.inner}>
-                <PureInput 
-                    {...field}
-                    className={cx(styles.input, Boolean(postInputButton) && styles.withPostInputButton)} 
-                    type={type} 
-                    placeholder={placeholder} 
-                    isInvalid={Boolean(fieldState.error)} 
-                />
+  return (
+    <div className={cx(styles.formInputWrapper, className)}>
+      {label ? <FieldLabel htmlFor={name}>{label}</FieldLabel> : null}
 
-                {postInputButton ?
-                    <div className={styles.postInputButtonWrapper}>
-                        {postInputButton}
-                    </div>
-                    : null
-                }
-            </div>
+      <div className={styles.formInputInner}>
+        <PureInput
+          {...field}
+          className={cx(
+            styles.formInput,
+            Boolean(postInputButton) && styles.withPostInputButton,
+          )}
+          type={type}
+          placeholder={placeholder}
+          isInvalid={Boolean(fieldState.error)}
+        />
 
-            <FieldError isHidden={!error}>{error}</FieldError>
-        </div>
-    )
+        {postInputButton ? (
+          <div className={styles.postInputButtonWrapper}>{postInputButton}</div>
+        ) : null}
+      </div>
+
+      <FieldError isHidden={!error}>{error}</FieldError>
+    </div>
+  )
 }
 
 export default FormInput

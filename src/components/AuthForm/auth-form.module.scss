@@ -1,16 +1,16 @@
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    max-width: 100%;
-    width: 420px;
-    padding: 38px 40px;
-    background-color: white;
-    border-radius: 6px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+.authFormWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  width: 420px;
+  padding: 38px 40px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
 
-    .button {
-        margin-top: 20px;
-    }
+.authFormButton {
+  margin-top: 20px;
 }

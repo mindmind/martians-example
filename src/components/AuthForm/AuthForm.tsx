@@ -7,42 +7,50 @@ import styles from './auth-form.module.scss'
 import type { FieldValues } from 'react-hook-form'
 
 interface AuthFormProps<T> {
-    title: string
-    submitText: string
-    isError?: boolean
-    isSuccess?: boolean
-    isLoading?: boolean
-    errorMessage?: string
-    onSubmit: (data: T) => void
+  title: string
+  submitText: string
+  isError?: boolean
+  isSuccess?: boolean
+  isLoading?: boolean
+  errorMessage?: string
+  onSubmit: (data: T) => void
 }
 
-const AuthForm = <T extends FieldValues,>(props: React.PropsWithChildren<AuthFormProps<T>>) => {
+const AuthForm = <T extends FieldValues>(
+  props: React.PropsWithChildren<AuthFormProps<T>>,
+) => {
   const {
-    title, 
+    title,
     submitText,
     isError,
     isSuccess,
     isLoading,
     errorMessage = 'unknown error',
     onSubmit,
-    children 
+    children,
   } = props
 
   return (
-    <Form<T> className={styles.wrapper} onSubmit={onSubmit}>
-      <h1 className={styles.title}>{title}</h1>
+    <Form<T> className={styles.authFormWrapper} onSubmit={onSubmit}>
+      <h1>{title}</h1>
 
       {children}
 
-      {isError ? 
+      {isError ? (
         <FormResult isSuccess={false}>{errorMessage}</FormResult>
-      : null}
+      ) : null}
 
-      {isSuccess ?
+      {isSuccess ? (
         <FormResult>The request is successful. Everything is fine.</FormResult>
-      : null}
+      ) : null}
 
-      <Button className={styles.button} type="submit" isLoading={isLoading}>{submitText}</Button>
+      <Button
+        className={styles.authFormButton}
+        type="submit"
+        isLoading={isLoading}
+      >
+        {submitText}
+      </Button>
     </Form>
   )
 }

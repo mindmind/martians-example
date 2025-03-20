@@ -1,14 +1,16 @@
 import styles from './field-label.module.scss'
 
 interface FieldLabelProps {
-    htmlFor?: string
+  htmlFor?: string
 }
 
 const FieldLabel = (props: React.PropsWithChildren<FieldLabelProps>) => {
   const { htmlFor, children } = props
-  
+
   return (
-    <label className={styles.label} htmlFor={htmlFor}>{children}</label>
+    <label className={styles.fieldLabel} htmlFor={htmlFor}>
+      {children}
+    </label>
   )
 }
 
