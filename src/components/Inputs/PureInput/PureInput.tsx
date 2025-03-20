@@ -35,6 +35,7 @@ const PureInput = (props: PureInputProps) => {
       type={type}
       required={isRequired}
       aria-invalid={isInvalid}
+      aria-errormessage={`${name}Error`}
       data-testid={name}
     />
   )

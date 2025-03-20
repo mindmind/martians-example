@@ -72,7 +72,9 @@ const FormInput = (props: FormInputProps) => {
         ) : null}
       </div>
 
-      <FieldError isHidden={!error}>{error}</FieldError>
+      <FieldError fieldName={name} isHidden={!error}>
+        {error}
+      </FieldError>
     </div>
   )
 }
