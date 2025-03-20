@@ -5,13 +5,20 @@ import PasswordFormInput from 'src/components/Inputs/PasswordFormInput/PasswordF
 const SignUpPasswords = () => {
   const { watch, trigger } = useFormContext()
 
+  const handleChangePassword = () => {
+    const confirmPasswordState = watch('confirmPassword')
+    if (typeof confirmPasswordState !== 'undefined') {
+      trigger('confirmPassword')
+    }
+  }
+
   return (
     <>
       <PasswordFormInput
         name="password"
         label="Password"
         autoComplete="new-password"
-        rules={{ required: true, onChange: () => trigger('confirmPassword') }}
+        rules={{ required: true, onChange: handleChangePassword }}
       />
 
       <PasswordFormInput
@@ -19,7 +26,7 @@ const SignUpPasswords = () => {
         label="Confirm Password"
         autoComplete="new-password"
         rules={{
-          required: true,
+          required: 'Please confirm your password',
           validate: (value) =>
             value === watch('password') || 'Passwords do not match',
           onChange: () => trigger('confirmPassword'),
