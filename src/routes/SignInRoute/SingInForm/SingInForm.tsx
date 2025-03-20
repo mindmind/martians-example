@@ -28,7 +28,6 @@ const SignInForm = () => {
         <FormInput
           name="email"
           label="Email"
-          placeholder="Enter your email"
           type="email"
           rules={{ required: true }}
         />
@@ -36,7 +35,7 @@ const SignInForm = () => {
         <PasswordFormInput
           name="password"
           label="Password"
-          placeholder="Enter your password"
+          autoComplete="current-password"
           rules={{ required: true }}
         />
       </AuthForm>

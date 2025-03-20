@@ -29,22 +29,20 @@ const SignUpForm = () => {
         <FormInput
           name="firstName"
           label="First Name"
-          placeholder="Enter your first name"
           rules={{ required: true }}
         />
 
         <FormInput
           name="lastName"
           label="Last Name"
-          placeholder="Enter your last name"
           rules={{ required: true }}
         />
 
         <FormInput
           name="email"
           label="Email"
-          placeholder="Enter your email"
           type="email"
+          autoComplete="username"
           rules={{ required: true }}
         />
 

@@ -27,7 +27,7 @@ const ForgotForm = () => {
         <FormInput
           name="email"
           label="Email"
-          placeholder="Enter your email"
+          autoComplete="username"
           type="email"
           rules={{ required: true }}
         />

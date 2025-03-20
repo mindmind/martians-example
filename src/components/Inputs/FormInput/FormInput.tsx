@@ -13,6 +13,7 @@ export interface FormInputProps {
   type?: React.HTMLInputTypeAttribute
   label?: string
   placeholder?: string
+  autoComplete?: string
   rules?: {
     required?: string | boolean
     pattern?: { value: RegExp; message: string }
@@ -29,6 +30,7 @@ const FormInput = (props: FormInputProps) => {
     type = 'text',
     label,
     placeholder,
+    autoComplete,
     rules,
     postInputButton,
   } = props
@@ -60,6 +62,7 @@ const FormInput = (props: FormInputProps) => {
           )}
           type={type}
           placeholder={placeholder}
+          autoComplete={autoComplete}
           isInvalid={Boolean(fieldState.error)}
           isRequired={isRequired}
         />

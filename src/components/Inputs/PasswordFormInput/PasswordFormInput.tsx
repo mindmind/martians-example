@@ -23,6 +23,7 @@ const PasswordFormInput = (props: FormInputProps) => {
     <button
       className={styles.visibilitySwitch}
       type="button"
+      aria-label={`${!isPasswordVisible ? 'Show' : 'Hide'} password`}
       onClick={handleToggleVisibility}
     >
       <img

@@ -10,14 +10,14 @@ const SignUpPasswords = () => {
       <PasswordFormInput
         name="password"
         label="Password"
-        placeholder="Enter your password"
+        autoComplete="new-password"
         rules={{ required: true, onChange: () => trigger('confirmPassword') }}
       />
 
       <PasswordFormInput
         name="confirmPassword"
         label="Confirm Password"
-        placeholder="Enter your password again"
+        autoComplete="new-password"
         rules={{
           required: true,
           validate: (value) =>
